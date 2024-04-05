@@ -1,0 +1,76 @@
+{
+    "intents":[
+        {
+            "tag":"greeting",
+            "patterns":[
+                "Hi",
+                "Hello",
+                "Hey",
+                "Hi there",
+                "Hello there",
+                "Hey there",
+                "Hi there"
+            ],
+            "responses":[
+             "Hey :-)",
+             "Need any assistance?",
+             "Ready to have a chat?",
+             "What can I help you with today?"
+            ]     
+        },
+        {
+            "tag":"goodbye",
+            "patterns":["Bye","Goodbye","See you later","bye","by"],
+            "responses":[
+                "see you later",
+                "Have a nice day",
+                "By! come back again",
+                "by!see you later"
+            ]
+        },
+        {
+            "tag":"items",
+            "patterns":["which items do you have?", "what kind of items are there?","what do you sell?"],
+            "responses":["we sell coffee and tea", "we have coffee nad tea"]
+        },
+        {
+            "tag":"Thanks",
+            "patterns":["Thank you", "Thanks","Thats helpfull"],
+            "responses":["Happy to help!","Any time!","My pleasure"]
+        },
+        {
+            "tag":"payment",
+            "patterns":[
+                "Do you take credit cards?",
+                "can i pay with Google pay?",
+                "can i pay with paytm?",
+                "Are you accept cash only?"
+            ],
+            "responses":["we accept credit cards.","we acccepted Google pay.","we accept paytm","other online payments"]
+        },
+        {
+            "tag": "delivery",
+            "patterns": [
+              "How long does delivery take?",
+              "How long does shipping take?",
+              "When do I get my delivery?"
+            ],
+            "responses": [
+              "Delivery takes 2-4 days",
+              "Shipping takes 2-4 days"
+            ]
+          },
+          {
+            "tag": "funny",
+            "patterns": [
+              "Tell me a joke!",
+              "Tell me something funny!",
+              "Do you know a joke?"
+            ],
+            "responses": [
+              "Why did the hipster burn his mouth? He drank the coffee before it was cool.",
+              "What did the buffalo say when his son left for college? Bison."
+            ]
+          }
+    ]
+}
