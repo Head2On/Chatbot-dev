@@ -20,7 +20,7 @@
         },
         {
             "tag":"goodbye",
-            "patterns":["Bye","Goodbye","See you later","bye","by"],
+            "patterns":["Bye","Goodbye","See you later","by"],
             "responses":[
                 "see you later",
                 "Have a nice day",
