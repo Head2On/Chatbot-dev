@@ -11,7 +11,7 @@ This repo currently contains the starter files.
 
 Clone repo and create a virtual environment
 ```
-$ git clone :https://github.com/Head2On/Chatbot-dev
+$ git clone https://github.com/Head2On/Chatbot-dev
 $ cd chatbot-deployment
 $ python-m venv venv
 $ . venv/bin/activate
