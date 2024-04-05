@@ -1,83 +1,52 @@
-# Implementation of a Contextual Chatbot in PyTorch.  
-Simple chatbot implementation with PyTorch. 
+# Chatbot Deployment with Flask and JavaScript
 
-- The implementation should be easy to follow for beginners and provide a basic understanding of chatbots.
-- The implementation is straightforward with a Feed Forward Neural net with 2 hidden layers.
-- Customization for your own use case is super easy. Just modify `intents.json` with possible patterns and responses and re-run the training (see below for more info).
+In this tutorial we deploy the chatbot I created in [this](https://github.com/python-engineer/pytorch-chatbot) tutorial with Flask and JavaScript.
 
-The approach is inspired by this article and ported to PyTorch: [https://chatbotsmagazine.com/contextual-chat-bots-with-tensorflow-4391749d0077](https://chatbotsmagazine.com/contextual-chat-bots-with-tensorflow-4391749d0077).
+This gives 2 deployment options:
+- Deploy within Flask app with jinja2 template
+- Serve only the Flask prediction API. The used html and javascript files can be included in any Frontend application (with only a slight modification) and can run completely separate from the Flask App then.
 
-## Watch the Tutorial
-[![Alt text](https://img.youtube.com/vi/RpWeNzfSUHw/hqdefault.jpg)](https://www.youtube.com/watch?v=RpWeNzfSUHw&list=PLqnslRFeH2UrFW4AUgn-eY37qOAWQpJyg)
+## Initial Setup:
+This repo currently contains the starter files.
 
-## Installation
-
-### Create an environment
-Whatever you prefer (e.g. `conda` or `venv`)
-```console
-mkdir myproject
-$ cd myproject
+Clone repo and create a virtual environment
+```
+$ git clone https://github.com/python-engineer/chatbot-deployment.git
+$ cd chatbot-deployment
 $ python3 -m venv venv
+$ . venv/bin/activate
 ```
-
-### Activate it
-Mac / Linux:
-```console
-. venv/bin/activate
+Install dependencies
 ```
-Windows:
-```console
-venv\Scripts\activate
+$ (venv) pip install Flask torch torchvision nltk
 ```
-### Install PyTorch and dependencies
-
-For Installation of PyTorch see [official website](https://pytorch.org/).
-
-You also need `nltk`:
- ```console
-pip install nltk
- ```
-
-If you get an error during the first run, you also need to install `nltk.tokenize.punkt`:
-Run this once in your terminal:
- ```console
-$ python
+Install nltk package
+```
+$ (venv) python
 >>> import nltk
 >>> nltk.download('punkt')
 ```
+Modify `intents.json` with different intents and responses for your Chatbot
 
-## Usage
 Run
-```console
-python train.py
 ```
-This will dump `data.pth` file. And then run
-```console
-python chat.py
+$ (venv) python train.py
 ```
-## Customize
-Have a look at [intents.json](intents.json). You can customize it according to your own use case. Just define a new `tag`, possible `patterns`, and possible `responses` for the chat bot. You have to re-run the training whenever this file is modified.
-```console
-{
-  "intents": [
-    {
-      "tag": "greeting",
-      "patterns": [
-        "Hi",
-        "Hey",
-        "How are you",
-        "Is anyone there?",
-        "Hello",
-        "Good day"
-      ],
-      "responses": [
-        "Hey :-)",
-        "Hello, thanks for visiting",
-        "Hi there, what can I do for you?",
-        "Hi there, how can I help?"
-      ]
-    },
-    ...
-  ]
-}
+This will dump data.pth file. And then run
+the following command to test it in the console.
 ```
+$ (venv) python chat.py
+```
+
+Now for deployment follow my tutorial to implement `app.py` and `app.js`.
+
+## Watch the Tutorial
+[![Alt text](https://img.youtube.com/vi/a37BL0stIuM/hqdefault.jpg)](https://youtu.be/a37BL0stIuM)  
+[https://youtu.be/a37BL0stIuM](https://youtu.be/a37BL0stIuM)
+
+## Note
+In the video we implement the first approach using jinja2 templates within our Flask app. Only slight modifications are needed to run the frontend separately. I put the final frontend code for a standalone frontend application in the [standalone-frontend](/standalone-frontend) folder.
+
+## Credits:
+This repo was used for the frontend code:
+https://github.com/hitchcliff/front-end-chatjs
